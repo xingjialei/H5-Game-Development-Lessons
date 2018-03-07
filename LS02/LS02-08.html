@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.addEventListener('load',eventWindowLoaded,false);
+        function eventWindowLoaded(){
+            canvasApp();
+        }
+        function canvasApp(){
+            var theCanvas = document.getElementById('canvas');
+            var context = theCanvas.getContext('2d');
+            drawBox(context);
+        }
+        function drawBox(ctx){
+            ctx.box(10,210,100,20,10,300,30,200,10,200,200,150);
+        }
+        CanvasRenderingContext2D.prototype.box = function (x1,y1,x2,y2,x3,y3,x4,y4,x5,y5) {
+            this.moveTo(x1,y1);
+            this.lineTo(x2,y3);
+            this.lineTo(x3,y3);
+            this.lineTo(x5,y5);
+            this.lineTo(x4,y4);
+            this.closePath();
+            this.stroke();       
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <canvas id="canvas" width="500" height="500" style="border:1px solid gray">
+
+        </canvas>
+    </div>
+</body>
+</html>
