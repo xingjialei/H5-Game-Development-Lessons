@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+       window.onload = function(){
+           var theCanvas = document.getElementById('special');
+           var context = theCanvas.getContext('2d');
+
+           context.fillStyle='plum';
+           context.fillRect(0,0,100,100);
+
+           var theCanvas = document.getElementById('speciall');
+           var context = theCanvas.getContext('2d');
+
+           context.fillStyle='plum';
+           context.fillRect(0,0,100,100);
+       }
+    </script>
+</head>
+<body>
+    <div>元素大小与画布大小不一致产生拉伸现象</div>
+    <div>
+        <canvas id="special" width="500px" height="500px" style="border:1px solid gray;"></canvas>
+        <canvas id="speciall" width="500px" height="500px" style="border:1px solid gray;width:200px;height:200px;"></canvas>
+    </div>
+</body>
+</html>
