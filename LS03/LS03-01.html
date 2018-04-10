@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            canvasAppOne();
+            canvasAppTwo();
+        }
+        function canvasAppOne(){
+            var theCanvas = document.getElementById('canvas');
+            var context = theCanvas.getContext('2d');
+
+            var spaceShip = new Image();
+            spaceShip.src = 'a.jpg';
+            spaceShip.onload = function(){
+
+                context.drawImage(spaceShip, 0, 0);
+                drawBorder(context,0, 0, 32, 32,"plum");
+
+                context.drawImage(spaceShip, 0, 32, 68, 68);
+                drawBorder(context,0, 32, 68, 68,"plum");
+
+                context.drawImage(spaceShip, 0, 0, 16, 16, 100, 100, 100, 100);
+                drawBorder(context,100, 100, 100, 100,"plum");
+            }
+        }
+        function canvasAppTwo(){
+            document.getElementById('canvas2').onclick = function(){
+                var theCanvas2 = document.getElementById('canvas2');
+                var ctx2 = theCanvas2.getContext('2d');
+                var theCanvas = document.getElementById('canvas');
+
+                ctx2.drawImage(theCanvas, 50, 50, 100, 100, 50, 50, 100, 100);
+                drawBorder(ctx2,50, 50, 100, 100,"skyblue");
+            }
+           
+        }
+        function drawBorder(ctx,x,y,a,b,color){
+            ctx.save();
+            ctx.strokeStyle=color;
+            ctx.lineWidth=1;
+            ctx.strokeRect(x, y, a, b);
+            ctx.restore();
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <canvas id="canvas" width="200" height="200" style="border:1px solid gray;"></canvas>
+        <canvas id="canvas2" width="200" height="200" style="border:1px solid gray;"></canvas>
+    </div>
+</body>
+</html>
